@@ -1,3 +1,4 @@
+# Load dependencies ----
 box::use(
   assertthat[assert_that],
   glue[glue],
@@ -11,7 +12,7 @@ box::use(
     ]
 )
 
-# Define helpers
+# Define helpers ----
 is_contiguous_polygon <- function(sf_object) {
   # Validate input sf object
   assert_that(all(st_geometry_type(sf_object) %in% c("POLYGON", "MULTIPOLYGON")))
@@ -28,16 +29,16 @@ is_contiguous_polygon <- function(sf_object) {
   }
 }
 
-# Data prep
+# Data prep ----
 uas <- urban_areas()
 pdx_ua <- uas[grep("Portland, OR--WA", uas$NAME10), ]
 or_zctas <- zctas(state = "OR", year = 2010)
 pdx_zctas <- or_zctas[pdx_ua, ]
 
-# Discontiguous polygons
+# Discontiguous polygons ----
 is_contiguous_polygon(or_zctas)
 # [1] FALSE
 
-# Contiguous polygons
+# Contiguous polygons ----
 is_contiguous_polygon(pdx_zctas)
 # [1] TRUE

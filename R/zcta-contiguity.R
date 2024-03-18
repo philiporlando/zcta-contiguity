@@ -1,6 +1,9 @@
 # Load dependencies ----
 box::use(
-  assertthat[assert_that],
+  assertthat[
+    assert_that,
+    validate_that,
+    ],
   glue[glue],
   sf[
     st_geometry_type,
@@ -10,7 +13,7 @@ box::use(
   tigris[
     urban_areas,
     zctas,
-    ]
+    ],
 )
 
 # Define helpers ----
@@ -42,7 +45,7 @@ box::use(
 #' is_contiguous_polygon(pdx_zctas) # Expect: TRUE
 is_contiguous_polygon <- function(sf_object) {
   # Validate input sf object
-  assert_that(all(st_geometry_type(sf_object) %in% c("POLYGON", "MULTIPOLYGON")))
+  validate_that(all(st_geometry_type(sf_object) %in% c("POLYGON", "MULTIPOLYGON")))
   assert_that(all(st_is_valid(sf_object)))
   # Distill polygons down to single feature
   single_feature <- st_union(sf_object)

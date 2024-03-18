@@ -31,13 +31,13 @@ is_contiguous_polygon <- function(sf_object) {
 # Data prep
 uas <- urban_areas()
 pdx_ua <- uas[grep("Portland, OR--WA", uas$NAME10), ]
+or_zctas <- zctas(state = "OR", year = 2010)
+pdx_zctas <- or_zctas[pdx_ua, ]
 
 # Discontiguous polygons
-or_zctas <- zctas(state = "OR", year = 2010)
 is_contiguous_polygon(or_zctas)
 # [1] FALSE
 
 # Contiguous polygons
-pdx_zctas <- or_zctas[pdx_ua, ]
 is_contiguous_polygon(pdx_zctas)
 # [1] TRUE

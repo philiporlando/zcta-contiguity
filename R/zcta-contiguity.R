@@ -30,19 +30,6 @@ box::use(
 #' @return A logical value: `TRUE` if the spatial features form a contiguous area, `FALSE` if they
 #' are discontiguous. If the geometry type of the distilled feature is neither POLYGON nor
 #' MULTIPOLYGON, the function stops with an error message.
-#'
-#' @examples
-#' library(sf)
-#' library(tigris)
-#'
-#' # Assuming `uas` and `zctas` are loaded as shown in the script
-#' pdx_ua <- uas[grep("Portland, OR--WA", uas$NAME10), ]
-#' or_zctas <- zctas(state = "OR", year = 2010)
-#' pdx_zctas <- or_zctas[pdx_ua, ]
-#'
-#' # Check contiguity
-#' is_contiguous_polygon(or_zctas) # Expect: FALSE
-#' is_contiguous_polygon(pdx_zctas) # Expect: TRUE
 is_contiguous_polygon <- function(sf_object) {
   # Validate input sf object
   validate_that(all(st_geometry_type(sf_object) %in% c("POLYGON", "MULTIPOLYGON")))

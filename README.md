@@ -1,6 +1,6 @@
-# ZCTA Contiguity Analysis Project
+# ZCTA Contiguity Validation
 
-This R project provides a helper function to assess whether given ZIP Code Tabulation Areas (ZCTAs) are contiguous. It leverages `sf::st_union()` to determine if the input geometries can be distilled down to a single `POLYGON` (contiguous) or `MULTIPOLYGON` (discontiguous) geometry type.
+This R project introduces a helper function designed to evaluate the contiguity of ZIP Code Tabulation Areas (ZCTAs). Utilizing `sf::st_union()`, the function discerns whether input geometries coalesce into a singular `POLYGON` (indicating contiguity) or a `MULTIPOLYGON` (indicating discontiguity), thereby determining the spatial continuity of ZCTAs.
 
 ## Getting Started
 

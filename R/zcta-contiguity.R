@@ -9,7 +9,7 @@ box::use(
     st_geometry_type,
     st_is_valid,
     st_union,
-  ],
+    ],
   tigris[
     urban_areas,
     zctas,
